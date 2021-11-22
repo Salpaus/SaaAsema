@@ -1,6 +1,7 @@
 # SaaAsema
 
 <H3>Chart.php<H3/>
+'''
 <html>
   <head>
 	<?php
@@ -47,3 +48,4 @@
     <div id="curve_chart" style="width: 900px; height: 500px"></div>
   </body>
 </html>
+'''
