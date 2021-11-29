@@ -52,11 +52,11 @@
 ```
 	
 <H3>Anturi.py<H3/>
-
 ```
 import time
 from datetime import datetime
 import mariadb
+import Adafruit_DHT
 
 ##salasana = "testi123"
 ##password = 0
@@ -77,12 +77,21 @@ conn = mariadb.connect(user="root", password="HyTe", host="localhost", database=
 cur = conn.cursor()
 
 arvo = 2
+DHT_SENSOR = Adafruit_DHT.DHT11
+DHT_PIN = 4
 
 while True:
     time.sleep(5)
-    print(f"{datetime.now()}".split('.')[0])
-    cur.execute(f"INSERT INTO Mittari (arvo, pvm) VALUES ('{arvo}', '{datetime.now()}')")
-    arvo += 2
+    humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN)
+    if temperature is not None:
+        print("Temp={0:0.1f}C".format(temperature))
+        aika = (f"{datetime.now()}".split('.')[0])
+        print(aika)
+        print(f"{temperature}")
+        cur.execute(f"INSERT INTO Mittari (arvo, pvm) VALUES ('{temperature}', '{aika}')")
+        arvo += 2
+    else:
+        print("NOT WÖRKING!?!?!");
     conn.commit()
     
 conn.close()
