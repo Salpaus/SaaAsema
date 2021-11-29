@@ -51,7 +51,8 @@
 </html>
 ```
 	
-<H3>Anturi.py<H3/>
+<H3>Anturi.py</H3>
+
 ```
 import time
 from datetime import datetime
@@ -93,6 +94,5 @@ while True:
     else:
         print("NOT WÖRKING!?!?!");
     conn.commit()
-    
 conn.close()
 ```
