@@ -1,7 +1,7 @@
   <html>
   <head>
 	<?php
-	//Tästä alkaa php koodi. Koodi yhdistää MYSQL tietokantaan ja ottaa tiedon, mikä tallennettiin python koodilla.
+	//Tästä alkaa php koodi. Koodi yhdistää MariaDB tietokantaan ja ottaa tiedon, mikä tallennettiin python koodilla.
 	header("refresh: 3;");
 	$hostname = "localhost";
 	$username = "root";
