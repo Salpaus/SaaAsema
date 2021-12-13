@@ -21,7 +21,9 @@
 	?>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+	    
     // Tästä alkaa JavaScript koodi. Koodi piirtää tietokannasta tulleesta datasta taulokon. Taulukko toimii Google charttina. Taulukkoon tulostuu mittauksen kellonaika ja lämpötila.
+	    
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
