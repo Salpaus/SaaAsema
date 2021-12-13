@@ -50,29 +50,17 @@
   </body>
 </html>
 ```
-	
-<H3>Anturi.py</H3>
 
+<H3>Anturi.py<H3/>
+	
 ```
+	
+##Tämä koodi ottaa anturista dataa ja siirtää sen MariaDB tietokantaan 
+
 import time
 from datetime import datetime
 import mariadb
 import Adafruit_DHT
-
-##salasana = "testi123"
-##password = 0
-##while password == 0:
-##    salasana2 = input("Anna salasana: ")
-##    if salasana2 == salasana:
-##        print("Password correct")
-##        password == 1
-##        break
-##    
-##    elif salasana2 != salasana:
-##        print("Password incorrect")
-##        password == 0
-        
-##while password == 1:
 
 conn = mariadb.connect(user="root", password="HyTe", host="localhost", database="Tiedot")
 cur = conn.cursor()
@@ -81,6 +69,8 @@ arvo = 2
 DHT_SENSOR = Adafruit_DHT.DHT11
 DHT_PIN = 4
 
+##Koodissa on 5 sekunnin loop, jonka aikana koodi siirtää anturidatan ja sen hetkisen kellonajan, jos anturi ei saa tietoa se tulostaa "Ei tietoa"
+
 while True:
     time.sleep(5)
     humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN)
@@ -88,11 +78,11 @@ while True:
         print("Temp={0:0.1f}C".format(temperature))
         aika = (f"{datetime.now()}".split('.')[0])
         print(aika)
-        print(f"{temperature}")
         cur.execute(f"INSERT INTO Mittari (arvo, pvm) VALUES ('{temperature}', '{aika}')")
         arvo += 2
     else:
-        print("NOT WÖRKING!?!?!");
+        print("Ei tietoa")
     conn.commit()
+
 conn.close()
 ```
