@@ -91,4 +91,5 @@ while True:
 conn.close()
 ```
 
-![paska](https://user-images.githubusercontent.com/91182746/145797222-5cca9249-c4fa-48a0-9423-6aaa6df8b543.PNG)
+![asdasdtrghhjkhuikthujk](https://user-images.githubusercontent.com/91182746/145800378-96aabccc-7fe7-424e-b41a-5e0bbd370b8d.PNG)
+
