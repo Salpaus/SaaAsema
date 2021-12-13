@@ -1,4 +1,4 @@
-##Tämä koodi ottaa anturista dataa ja siirtää sen MYSQL tietokantaan 
+##Tämä koodi ottaa anturista dataa ja siirtää sen MariaDB tietokantaan 
 
 import time
 from datetime import datetime
